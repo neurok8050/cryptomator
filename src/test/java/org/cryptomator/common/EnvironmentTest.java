@@ -121,6 +121,13 @@ public class EnvironmentTest {
 			env.getKeychainPath();
 			Mockito.verify(env).getPaths("cryptomator.integrationsWin.keychainPaths");
 		}
+		@Test
+		public void testEncryptionSuccess() {
+   			 String plainText = "Hello, World!";
+    			String encryptedText = cryptomator.encrypt(plainText);
+    			assertNotNull(encryptedText);  // Oracle: vérifie que le texte chiffré n'est pas null
+}
+
 	}
 
 }
