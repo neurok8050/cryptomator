@@ -122,12 +122,11 @@ public class EnvironmentTest {
 			Mockito.verify(env).getPaths("cryptomator.integrationsWin.keychainPaths");
 		}
 
+		// Test ajouté par Claudéric 07/10/2024
 		@Test
 		public void testGetAppVersion(){
 			// arrange
-			Environment test_env = Mockito.mock(Environment.class);
 			String expected = "SNAPSHOT";
-
 
 			// act
 			String actual = Environment.getInstance().getAppVersion();
@@ -135,6 +134,7 @@ public class EnvironmentTest {
 			// assert
 			Assertions.assertEquals(expected, actual);
 		}
+
 
 		// test ne fonctionne pas
 //		@Test
