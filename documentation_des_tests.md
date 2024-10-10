@@ -1,5 +1,5 @@
 # Documentation des nouveaux tests
-## Claudéric DeRoy (20102789)
+## Claudéric DeRoy
 ## Mohammed Aiman Rahmani
 ### Étude de cas choisi : Cryptomator
 
@@ -23,3 +23,18 @@ Raison du choix : La fonction `storeToXML(OutputStream os, String comment)` a é
 
 
 #### Classe [`ObservableUtilTest.java`](https://github.com/neurok8050/cryptomator/blob/develop/src/test/java/org/cryptomator/common/ObservableUtilTest.java)
+
+1. `testMapWithDefaultNonNull()` :  
+Raison : Vérifie que mapWithDefault fonctionne correctement avec une valeur observable non-nulle (transformation d’une chaîne en sa longueur).
+
+2. `testMapWithDefaultNull()` :  
+Raison : Vérifie que mapWithDefault retourne la valeur par défaut lorsque l’observable est nulle.
+
+3. `testMapWithDefaultSupplierNonNull()` :  
+Raison : Vérifie que l’utilisation d’un Supplier pour la valeur par défaut fonctionne correctement avec une valeur observable non-nulle.
+
+4. `testMapWithDefaultSupplierNull()` :  
+Raison : Teste le comportement de mapWithDefault avec un Supplier lorsque l’observable est nulle.
+
+5. `testMapWithDefaultSupplierChangingValue()` :  
+Raison : Vérifie le comportement lorsque la valeur observable change dynamiquement, en s’assurant que mapWithDefault réagit correctement aux modifications.
