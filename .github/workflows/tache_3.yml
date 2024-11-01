@@ -31,7 +31,7 @@ jobs:
           jacoco:report
           -Pcoverage
       - name: Buid first flag
-        run: >
+        run: |
           xvfb-run
           mvn -B verify -Djavafx.platform=linux
           export MAVEN_OPTS=" -XX:+ExtendedDTraceProbes"
