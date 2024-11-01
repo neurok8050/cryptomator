@@ -28,5 +28,11 @@ jobs:
       - name: Buid first flag
         run: |
           export MAVEN_OPTS=" -XX:+ExtendedDTraceProbes"
-          unset MAVEN_OPTS
           xvfb-run mvn verify -Pcoverage
+          unset MAVEN_OPTS
+
+      - name: Build second flag
+        run: |
+          export MAVEN_OPTS=" -X"
+          xvfb-run mvn verify -Pcoverage
+          unset MAVEN_OPTS
