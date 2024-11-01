@@ -26,8 +26,7 @@ jobs:
           cache: 'maven'
           
       - name: Buid first flag
-        run: >
-          xvfb-run
-          mvn -B verify -Djavafx.platform=linux
-          # export MAVEN_OPTS=" -XX:+ExtendedDTraceProbes"
-          # unset MAVEN_OPTS
+        run: |
+          export MAVEN_OPTS=" -XX:+ExtendedDTraceProbes"
+          unset MAVEN_OPTS
+          xvfb-run mvn -B verify -Djavafx.platform=linux
