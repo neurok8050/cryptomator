@@ -26,7 +26,7 @@ jobs:
           cache: 'maven'
           
       - name: Buid first flag
-        run: >
+        run: |
           java -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal -version
           xvfb-run
           export MAVEN_OPTS="-XX:+ExtensiveErrorReports"
