@@ -29,5 +29,5 @@ jobs:
         run: |
           java -XX:+PrintFlagsFinal -version
           export MAVEN_OPTS="-XX:+ExtensiveErrorReports"
-          mvn verify -Pcoverage
+          xvfb-run mvn -B verify -Pcoverage
           java -XX:+PrintFlagsFinal -version
