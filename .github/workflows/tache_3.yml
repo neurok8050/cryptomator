@@ -26,10 +26,9 @@ jobs:
           cache: 'maven'
           
       - name: Buid first flag
-        uses: Best-Quality-Engineering/ci-maven-action@v1
-        with:
-          maven-opts: -XX:+ExtensisveErrorReports
-          run: |
+      - run: |
           
-            xvfb-run java -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal -version
-            xvfb-run mvn verify -Pcoverage
+          xvfb-run java -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal -version
+          xvfb-run export MAVEN_OPTS=" -XX:+ExtendedDTraceProbes"
+          xvfb-run mvn verify -Pcoverage
+          xvfb-run java -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal -version
