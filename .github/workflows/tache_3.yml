@@ -29,6 +29,6 @@ jobs:
         run: |
           java -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal -version
           export MAVEN_OPTS="-XX:+ExtensiveErrorReports"
-          xvfb-run -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal -version
+          xvfb-run java -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal -version
           xvfb-run mvn verify -Pcoverage
           unset MAVEN_OPTS
