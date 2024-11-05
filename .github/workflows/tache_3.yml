@@ -30,6 +30,6 @@ jobs:
           java -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal -version
           xvfb-run
           export MAVEN_OPTS="-XX:+ExtensiveErrorReports"
-          java -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal -version
+          -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal -version
           mvn verify -Pcoverage
           unset MAVEN_OPTS
