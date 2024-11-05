@@ -27,7 +27,7 @@ jobs:
           
       - name: Buid first flag
         run: |
-          xvfb-run java -XX:+PrintFlagsFinal -version
-          xvfb-run export MAVEN_OPTS="-XX:+ExtensiveErrorReports"
+          java -XX:+PrintFlagsFinal -version
+          export MAVEN_OPTS="-XX:+ExtensiveErrorReports"
           xvfb-run mvn verify -Pcoverage
-          xvfb-run java -XX:+PrintFlagsFinal -version
+          java -XX:+PrintFlagsFinal -version
