@@ -28,9 +28,9 @@ jobs:
           java-version: ${{ env.JAVA_VERSION }}
           cache: 'maven'
           
-      - name: Build first flag
+      - name: Build the 5 differents flags with strategy.matrix
         run: |
-          # export MAVEN_OPTS=${{ matrix.flag }}
+          export MAVEN_OPTS=${{ matrix.flag }}
           echo "###############################"
           echo "the current flag being used " $MAVEN_OPTS
           echo "###############################"
