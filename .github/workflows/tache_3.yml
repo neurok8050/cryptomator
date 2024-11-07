@@ -17,9 +17,9 @@ jobs:
   test:
     name: Compile and Test
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        flag: ["-XX:+ExtensiveErrorReports", "-XX:SurvivorRatio=4"]
+    # strategy:
+    #   matrix:
+    #     flag: ["-XX:+ExtensiveErrorReports", "-XX:SurvivorRatio=4"]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
@@ -30,10 +30,11 @@ jobs:
           
       - name: Build and with the 5 differents flag using a matrix stategy
         run: |
-          export MAVEN_OPTS=${{ matrix.flag }}
-          #var$=(java -XX:+PrintFlagsFinal -version | grep )
+          # export MAVEN_OPTS=${{ matrix.flag }}
+          export MAVEN_OPTS="-XX:+ExtensiveErrorReports"
+          var$=(java -XX:+PrintFlagsFinal -version | grep ExtensiveErrorReports)
           echo "###############################"
-          echo "the current flag being used " $MAVEN_OPTS
+          echo "the current flag being used " $var
           echo "###############################"
           xvfb-run mvn -B verify -Djavafx.platform=linux jacoco:report -Pcoverage
           unset MAVEN_OPTS  
