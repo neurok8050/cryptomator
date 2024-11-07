@@ -32,7 +32,7 @@ jobs:
         run: |
           export MAVEN_OPTS=${{ matrix.flag }}
           echo "###############################"
-          echo $MAVEN_OPTS
+          echo "the current flag being used " $MAVEN_OPTS
           echo "###############################"
           xvfb-run mvn -B verify -Djavafx.platform=linux jacoco:report -Pcoverage
           unset MAVEN_OPTS  
