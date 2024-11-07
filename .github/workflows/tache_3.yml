@@ -32,11 +32,11 @@ jobs:
         run: |
           # export MAVEN_OPTS=${{ matrix.flag }}
           export MAVEN_OPTS="-XX:+ExtensiveErrorReports"
-          var=$(mvn -XX:+PrintFlagsFinal -version | grep ExtensiveErrorReports)
+          var=$(java -XX:+PrintFlagsFinal -version | grep ExtensiveErrorReports)
           echo "###############################"
           echo "the current flag being used " $var
           echo "###############################"
-          xvfb-run mvn -B verify -Djavafx.platform=linux jacoco:report -Pcoverage
+          xvfb-run mvn -X verify -Djavafx.platform=linux jacoco:report -Pcoverage
           unset MAVEN_OPTS  
       - name: Get JaCoCo Coverage
         id: coverage  
