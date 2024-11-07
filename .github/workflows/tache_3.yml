@@ -28,11 +28,11 @@ jobs:
           java-version: ${{ env.JAVA_VERSION }}
           cache: 'maven'
           
-      - name: Build and with the 5 differents flag using a matrix stategy
+      - name: Build first flag
         run: |
           # export MAVEN_OPTS=${{ matrix.flag }}
           export MAVEN_OPTS="-XX:+ExtensiveErrorReports"
-          var=$(java -XX:+PrintFlagsFinal -version | grep ExtensiveErrorReports)
+          var=$(mvn -XX:+PrintFlagsFinal -version | grep ExtensiveErrorReports)
           echo "###############################"
           echo "the current flag being used " $var
           echo "###############################"
