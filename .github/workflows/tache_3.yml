@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        flag: ["-XX:SurvivorRatio=4"]
+        flag: ["-XX:SurvivorRatio=4", "-XX:+PrintClassHistogram", "‑XX:ErrorFile=_test_jvm"]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
@@ -56,4 +56,5 @@ jobs:
         run: |
           sudo apt-get install cowsay -y
           sudo apt-get install lolcat -y
+          clear
           cowsay "Tous les tests sont finis c'est meuuhhveilleux!!!!" | lolcat
