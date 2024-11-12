@@ -56,5 +56,4 @@ jobs:
         run: |
           sudo apt-get install cowsay -y
           sudo apt-get install lolcat -y
-          clear
           cowsay "Tous les tests sont finis c'est meuuhhveilleux!!!!" | lolcat
