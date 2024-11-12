@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        flag: ["-XX:+ExtensiveErrorReports", "-XX:SurvivorRatio=4"]
+        flag: ["-XX:SurvivorRatio=4"]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
@@ -51,3 +51,9 @@ jobs:
           else
             echo "New coverage: $coverage%"
           fi
+
+      - name: Ending message
+        run: |
+          sudo apt-get install cowsay -y
+          sudo apt-get install lolcat -y
+          cowsay "Tous les tests sont finis c'est meuuhhveilleux!!!!" | lolcat
