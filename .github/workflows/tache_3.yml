@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        flag: ["-XX:SurvivorRatio=4", "-XX:+PrintClassHistogram", "‑XX:ErrorFile=./"]
+        flag: ["-XX:SurvivorRatio=4", "-XX:+PrintClassHistogram", "‑XX:ErrorFile='./log_error.txt'"]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
