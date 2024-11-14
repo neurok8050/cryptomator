@@ -24,6 +24,15 @@ afin de paralléliser le build des différentes «*jvm*» avec les 5 «*flags*»
 	Permet d'imprimer un diagramme de l'historique des instances des classes créées durant l'exécution, pratique pour trouver une ou des fuites produit par le code.
 - [`-XX:CompilationMode='quick-only'`][3]  
 	Permet de modifier la façon dont la compilation est faite. Normalement, la compilation est effectuée en «*normal tiered compilation*» qui commence avec une compilation C1 et poursuit avec une compilation C2. Par contre, on peut changer de type de compilation grâce à ce «*flag*». Ici, on utilise la compilation `'quick-only'` qui utilise seulement la compilation C1 qui est optimizé pour être beaucoup plus rapide que la compilation C2 ou «*normal tiered compilation*», mais est moins performante. On pourra voir si le code performe aussi bien, mais s'il n'est pas compilé normalement.
+[-XX:+HeapDumpOnOutOfMemoryError] [4]
+
+    Ce flag crée un dump mémoire en cas d'erreur OutOfMemoryError, permettant de capturer l'état complet de la mémoire à ce moment.
+    Utilité : Idéal pour diagnostiquer les fuites de mémoire ou des charges excessives de mémoire dans l'application.
+
+[-XX:+UseG1GC] [5]
+
+Active le Garbage Collector G1, optimisé pour des pauses de collecte de mémoire courtes et régulières.
+    Utilité : Conçu pour les applications avec de gros volumes de données, il améliore les performances en réduisant les interruptions dues au GC.
 
 #### Référence intéressantes
 
